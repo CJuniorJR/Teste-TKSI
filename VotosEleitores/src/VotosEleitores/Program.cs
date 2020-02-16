@@ -36,9 +36,9 @@ namespace VotosEleitores
 
             var calculador = new CalculoEleitoral(eleitores, votosBrancos, votosNulos, votosValidos);
 
-            var(mensagens, isCalculoValido) = calculador.ObterEstatisticas();
+            var mensagens = calculador.ObterEstatisticas();
 
-            if (!isCalculoValido)
+            if (!calculador.IsConsistente)
             {
                 Console.WriteLine("Dados invalidos para calculo. Motivos:");
             }

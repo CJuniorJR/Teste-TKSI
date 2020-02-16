@@ -22,9 +22,9 @@ namespace ReajusteSalarial
 
             var calculadora = new CalculadoraSalarial(salarioAtual, percentualReajuste);
 
-            var (mensagens, isCalculoValido) = calculadora.Calcular();
+            var mensagens = calculadora.Calcular();
 
-            if (!isCalculoValido)
+            if (!calculadora.IsConsistente)
             {
                 Console.WriteLine("Dados Invalidos para o calculo, motivos:");
             }

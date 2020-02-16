@@ -12,7 +12,7 @@ namespace VotosEleitores
         public int VotosValidos { get; protected set; }
         private List<string>MensagensErro { get; set; }
 
-        private bool IsConsistente => MensagensErro.Count == 0;
+        public bool IsConsistente => MensagensErro.Count == 0;
         public CalculoEleitoral(int totalEleitores, int votosBrancos, int votosNulos, int votosValidos)
         {
             MensagensErro = new List<string>();
@@ -33,16 +33,16 @@ namespace VotosEleitores
             if ((VotosBrancos + VotosNulos + VotosValidos) > TotalEleitores) MensagensErro.Add("A soma de todos os votos e maior que o total de eleitores");
         }
 
-        public (List<string> mensagens, bool isValid) ObterEstatisticas()
+        public List<string> ObterEstatisticas()
         {
-            if (!IsConsistente) return (MensagensErro, false);
+            if (!IsConsistente) return MensagensErro;
 
             var estatisticas = new List<string>();
             estatisticas.Add($"O total de votos Brancos representa {(TotalEleitores * ((double)VotosBrancos/100))*100}% do total de {TotalEleitores} eleitores do municipio");
             estatisticas.Add($"O total de votos Nulos representa {(TotalEleitores * ((double)VotosNulos /100))*100}% do total de {TotalEleitores} eleitores do municipio");
             estatisticas.Add($"O total de votos Validos representa {(TotalEleitores * ((double)VotosValidos /100))*100}% do total de {TotalEleitores} eleitores do municipio");
 
-            return (estatisticas, true);
+            return estatisticas;
         }
         
     }
