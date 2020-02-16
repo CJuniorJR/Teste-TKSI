@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ReajusteSalarial
 {
-    class CalculadoraSalarial
+    public class CalculadoraSalarial
     {
         public double SalarioAtual { get; protected set; }
         public double PercentualReajuste { get; protected set; }
