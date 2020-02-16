@@ -16,7 +16,7 @@ namespace ReajusteSalarial
         {
             MensagensErro = new List<string>();
             SalarioAtual = salarioAtual;
-            PercentualReajuste = PercentualReajuste;
+            PercentualReajuste = percentualReajuste;
 
             ValidarSalario();
         }
