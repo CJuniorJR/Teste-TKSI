@@ -15,7 +15,7 @@ namespace ReajusteSalarial.Tests
             var calculadora = new CalculadoraSalarial(-1000, 50);
             var resultado = calculadora.Calcular();
 
-            Assert.Contains("Salario negativo", resultado);
+            Assert.AreEqual("Salario negativo", resultado);
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace ReajusteSalarial.Tests
             var calculadora = new CalculadoraSalarial(1000, 50);
             var resultado = calculadora.Calcular();
 
-            Assert.Contains("O salario de R$ 1000 com reajuste de 50% � igual a R$ 1500", resultado);
+            Assert.AreEqual("O salario de R$ 1000 com reajuste de 50% e igual a R$ 1500", resultado);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace ReajusteSalarial.Tests
             var calculadora = new CalculadoraSalarial(1000, -50);
             var resultado = calculadora.Calcular();
 
-            Assert.Contains("O salario de R$ 1000 com reajuste de -50% � igual a R$ 500", resultado);
+            Assert.AreEqual("O salario de R$ 1000 com reajuste de -50% e igual a R$ 500", resultado);
         }
     }
 }

@@ -22,14 +22,14 @@ namespace ReajusteSalarial
 
             var calculadora = new CalculadoraSalarial(salarioAtual, percentualReajuste);
 
-            var mensagens = calculadora.Calcular();
+            var mensagem = calculadora.Calcular();
 
             if (!calculadora.IsConsistente)
             {
                 Console.WriteLine("Dados Invalidos para o calculo, motivos:");
             }
 
-            mensagens.ForEach(mensagem => Console.WriteLine(mensagem));
+            Console.WriteLine(mensagem);
             Console.ReadKey();
         }
     }

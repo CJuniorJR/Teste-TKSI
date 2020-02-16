@@ -9,12 +9,11 @@ namespace ReajusteSalarial
         public double SalarioAtual { get; protected set; }
         public double PercentualReajuste { get; protected set; }
 
-        private List<string> MensagensErro { get; set; }
-        public bool IsConsistente => MensagensErro.Count == 0;
+        private string MensagemErro { get; set; }
+        public bool IsConsistente => MensagemErro == null;
 
         public CalculadoraSalarial(double salarioAtual, double percentualReajuste)
         {
-            MensagensErro = new List<string>();
             SalarioAtual = salarioAtual;
             PercentualReajuste = percentualReajuste;
 
@@ -23,17 +22,14 @@ namespace ReajusteSalarial
 
         private void ValidarSalario()
         {
-            if (SalarioAtual < 0) MensagensErro.Add("Salario negativo");
+            if (SalarioAtual < 0) MensagemErro = "Salario negativo";
         }
 
-        public List<string> Calcular()
+        public string Calcular()
         {
-            if (!IsConsistente) return MensagensErro;
+            if (!IsConsistente) return MensagemErro;
 
-            var novoSalario = new List<string>();
-            novoSalario.Add($"O salario de R$ {SalarioAtual} com reajuste de {PercentualReajuste}% é igual a R$ {(SalarioAtual + (SalarioAtual * PercentualReajuste / 100))}");
-
-            return novoSalario;
+            return $"O salario de R$ {SalarioAtual} com reajuste de {PercentualReajuste}% e igual a R$ {(SalarioAtual + (SalarioAtual * PercentualReajuste / 100))}";
         }
     }
 }
