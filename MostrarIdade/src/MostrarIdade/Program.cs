@@ -25,7 +25,9 @@ namespace MostrarIdade
                 Console.WriteLine("Numero invalido");
             }
 
-            Console.WriteLine("Idade em dias: " + 365 * anos + 30 * meses + dias);
+            dias += 365 * anos + 30 * meses;
+
+            Console.WriteLine("Idade em dias: " + dias);
         }
     }
 }
