@@ -31,7 +31,7 @@ namespace ReajusteSalarial
             if (!IsConsistente) return (MensagensErro, false);
 
             var novoSalario = new List<string>();
-            novoSalario.Add($"O salario de {SalarioAtual} com reajuste de {PercentualReajuste}% é igual a {(SalarioAtual + (SalarioAtual * PercentualReajuste / 100))}");
+            novoSalario.Add($"O salario de R$ {SalarioAtual} com reajuste de {PercentualReajuste}% é igual a R$ {(SalarioAtual + (SalarioAtual * PercentualReajuste / 100))}");
 
             return (novoSalario, true);
         }
